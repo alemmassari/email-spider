@@ -1,3 +1,12 @@
+# -----------------------------------------
+# 📦 Requisiti per Streamlit Cloud (requirements.txt):
+# streamlit
+# requests
+# beautifulsoup4
+# googlesearch-python
+# duckduckgo_search
+# -----------------------------------------
+
 import requests
 import re
 import time
@@ -8,7 +17,7 @@ from googlesearch import search
 # ---------------------- CONFIG ----------------------
 st.set_page_config(page_title="Email Spider GPT", layout="wide")
 st.title("📬 Email Spider GPT Enhanced")
-st.markdown("Estrai email pubbliche da siti trovati via DuckDuckGo, Google o Bing (se disponibile).")
+st.markdown("Estrai email pubbliche da siti trovati via DuckDuckGo, Google o Bing (placeholder).")
 
 # ---------------------- SIDEBAR INPUT ----------------------
 with st.sidebar:
@@ -16,7 +25,7 @@ with st.sidebar:
     browser_type = st.selectbox("🌐 Motore di ricerca", ["DuckDuckGo", "Google", "Bing (non attivo)"], index=0)
     keyword = st.text_input("🔍 Parole chiave", placeholder="es. sport Piemonte")
     max_results = st.slider("🔢 Numero siti da analizzare", min_value=10, max_value=100, value=30, step=10)
-    delay = st.slider("⏱️ Ritardo tra le richieste (sec)", min_value=0, max_value=10, value=1)
+    delay = st.slider("⏱️ Ritardo tra richieste (sec)", min_value=0, max_value=10, value=1)
     start_button = st.button("🚀 Avvia la ricerca email")
 
 # ---------------------- FUNZIONI ----------------------
@@ -76,5 +85,3 @@ if start_button and keyword:
             st.warning("⚠️ Nessuna email trovata.")
     else:
         st.warning("❌ Nessun sito trovato. Prova con un'altra keyword.")
-
-
